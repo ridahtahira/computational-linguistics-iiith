@@ -1,0 +1,8 @@
+Functionality:
+1. Dropdown Menu :-  Displays languages Hindi and English.
+2. Re-form the sentence :- Once the sentence is formed using the words.This button gets activated.
+3. After clicking the Reform the sentence button, the words are back to their original place and you can re-form the sentence.
+4. check the correctness of this sentence :- Once all the words are selected, this button is activated.
+5. If the answer you submitted is wrong then the button "Get correct answer" is activated else if the answer is correct a message "Right answer" is displayed.
+6. The "get correct answer" button when pressed will give a list of all possible sentences that can be formed with the given words with "Hide correct answers" button.
+7. Besides the available features , what I would like to add to it is: Even when the sentence entered is right the other possible statements should also be displayed.
