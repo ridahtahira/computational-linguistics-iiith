@@ -1,0 +1,20 @@
+#p1
+{
+    font-size: 20px;
+    color: #0000b3;
+    font-weight: bold;
+    font-family: 'Kumbh Sans', sans-serif;
+}
+#p2{
+   color: #0000ff;
+   font-style: italic;
+   font-size:15px;
+   line-height: 2%;
+}
+#change
+{
+    padding:20px;
+    font-family: 'Kumbh Sans', sans-serif;
+    font-size: 25px;
+    font-weight: lighter;
+}
