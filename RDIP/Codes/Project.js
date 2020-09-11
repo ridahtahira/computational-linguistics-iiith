@@ -42,9 +42,18 @@ var Hin=["राम और श्याम बाजार गयें","रा
 		      var button = document.createElement("button");
               button.innerHTML = e_arr[i]
               body.appendChild(button);
-            }
           
-            
+            button.addEventListener("click",function()
+            {
+               var disp=0;
+               document.getElementById("form").innerHTML="Formed Sentences (after selecting words):";
+               document.getElementById("sent").innerHTML+=this.innerHTML+" ";
+               this.style.display="none";
+               disp++;
+               if(disp>0)
+                 document.getElementById("reform").style.visibility="visible";
+            });
+        }
         }
         else if (document.getElementById("hin").selected) 
         {
@@ -69,7 +78,20 @@ var Hin=["राम और श्याम बाजार गयें","रा
 		      var button = document.createElement("button");
               button.innerHTML = h_arr[i]
               body.appendChild(button);
+              button.addEventListener("click",function()
+              {
+               var disp=0;
+               document.getElementById("form").innerHTML="Formed Sentences (after selecting words):";
+               document.getElementById("sent").innerHTML+=this.innerHTML+" ";
+               this.style.display="none";
+               disp++;
+               if(disp>0)
+                 document.getElementById("reform").style.visibility="visible";
+            });
             }
+            
+
+            
           
             
 
