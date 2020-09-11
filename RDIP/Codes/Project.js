@@ -19,15 +19,16 @@ var Hindi=[["राम और श्याम बाजार गयें","र
 var Hin=["राम और श्याम बाजार गयें","राम सोया और श्याम भी","मैंने उसे बताया कि राम सो रहा है","बिल्लियों को मारकर कुत्ता सो गया","एक लाल किताब वहाँ है","एक लाल किताब है वहाँ","एक बड़ी सी किताब वहाँ है"];
     function select()
     {
+            var random_e=Eng[Math.floor(Math.random()*Eng.length)];
+             e_arr=random_e.split(" ");
+             var random_h=Hin[Math.floor(Math.random()*Hin.length)];
+             h_arr=random_h.split(" ");
         if(document.getElementById("eng").selected)
         {
             document.getElementById("button").innerHTML="";
             document.getElementById("p1").innerHTML="Form a sentence (Declarative or Interrogative or any other type) from the given words";
             document.getElementById("p2").innerHTML="(select the buttons in proper order)";
-            var random_e=Eng[Math.floor(Math.random()*Eng.length)];
-            var body=document.getElementById("button");
-            console.log(random_e);
-            var e_arr=random_e.split(" ");
+             var body=document.getElementById("button");
             var e,index, c=e_arr.length;
             for(i=0;i<c;i++)
             {
@@ -39,7 +40,8 @@ var Hin=["राम और श्याम बाजार गयें","रा
             }
             for(i=0;i<c;i++)
             {
-		      var button = document.createElement("button");
+              var button = document.createElement("button");
+              button.id=i;
               button.innerHTML = e_arr[i]
               body.appendChild(button);
           
@@ -58,13 +60,10 @@ var Hin=["राम और श्याम बाजार गयें","रा
         else if (document.getElementById("hin").selected) 
         {
             document.getElementById("button").innerHTML="";
-            document.getElementById("p1").innerHTML="Form a sentence (Declarative or Interrogative or any other type) from the given words"
-            document.getElementById("p2").innerHTML="(select the buttons in proper order)"
-            var random_h=Hin[Math.floor(Math.random()*Hin.length)];
+            document.getElementById("p1").innerHTML="Form a sentence (Declarative or Interrogative or any other type) from the given words";
+            document.getElementById("p2").innerHTML="(select the buttons in proper order)";
+            var index, c=h_arr.length
             var body=document.getElementById("button");
-            console.log(random_h);
-            var h_arr=random_h.split(" ");
-            var index, c=h_arr.length;
             for(i=0;i<c;i++)
             {
 	          index=Math.floor(Math.random()*c)
@@ -75,11 +74,12 @@ var Hin=["राम और श्याम बाजार गयें","रा
             }
             for(i=0;i<c;i++)
             {
-		      var button = document.createElement("button");
+              var button = document.createElement("button");
+              button.id=i;
               button.innerHTML = h_arr[i]
               body.appendChild(button);
               button.addEventListener("click",function()
-              {
+             {
                var disp=0;
                document.getElementById("form").innerHTML="Formed Sentences (after selecting words):";
                document.getElementById("sent").innerHTML+=this.innerHTML+" ";
@@ -100,5 +100,24 @@ var Hin=["राम और श्याम बाजार गयें","रा
             document.getElementById("p1").innerHTML="";
             document.getElementById("p2").innerHTML="";
             document.getElementById("button").innerHTML="";
+        }
+    }
+    function reform()
+    {
+        
+        i=0;
+       while(i<e_arr.length || i<h_arr.length)
+        {
+            if(document.getElementById(i).style.display=="none")
+            {
+                document.getElementById(i).style.display="inline";
+            }
+       
+        document.getElementById("form").innerHTML="";
+        document.getElementById("sent").innerHTML="";
+        var button=document.getElementById("reform");
+        button.style.visibility="hidden";
+        i++;
+        
         }
     }
