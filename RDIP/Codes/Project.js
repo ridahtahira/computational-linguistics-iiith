@@ -32,11 +32,10 @@ var Hin=["राम और श्याम बाजार गयें","रा
             var e,index, c=e_arr.length;
             for(i=0;i<c;i++)
             {
-	          index=Math.floor(Math.random()*c)
-	          temp=e_arr[i];
-	          e_arr[i]=e_arr[index]
+	            index=Math.floor(Math.random()*c)
+	            temp=e_arr[i];
+	            e_arr[i]=e_arr[index]
               e_arr[index]=temp;
-              
             }
             for(i=0;i<c;i++)
             {
@@ -54,11 +53,19 @@ var Hin=["राम और श्याम बाजार गयें","रा
                disp++;
                if(disp>0)
                  document.getElementById("reform").style.visibility="visible";
+                 var a=String(document.getElementById("sent").innerHTML).replace(/\s+/, "");
+                 a1=a.split(" ");
+               if(e_arr.length == a1.length)
+               {
+                  document.getElementById("correct").style.visibility="visible";
+               }
+               
             });
         }
         }
         else if (document.getElementById("hin").selected) 
         {
+            document.getElementById("sent").innerHTML="";
             document.getElementById("button").innerHTML="";
             document.getElementById("p1").innerHTML="Form a sentence (Declarative or Interrogative or any other type) from the given words";
             document.getElementById("p2").innerHTML="(select the buttons in proper order)";
@@ -66,9 +73,9 @@ var Hin=["राम और श्याम बाजार गयें","रा
             var body=document.getElementById("button");
             for(i=0;i<c;i++)
             {
-	          index=Math.floor(Math.random()*c)
-	          temp=h_arr[i];
-	          h_arr[i]=h_arr[index]
+	            index=Math.floor(Math.random()*c)
+	            temp=h_arr[i];
+	            h_arr[i]=h_arr[index]
               h_arr[index]=temp;
               
             }
@@ -79,23 +86,20 @@ var Hin=["राम और श्याम बाजार गयें","रा
               button.innerHTML = h_arr[i]
               body.appendChild(button);
               button.addEventListener("click",function()
-             {
+              {
                var disp=0;
                document.getElementById("form").innerHTML="Formed Sentences (after selecting words):";
                document.getElementById("sent").innerHTML+=this.innerHTML+" ";
                this.style.display="none";
                disp++;
                if(disp>0)
+               {
                  document.getElementById("reform").style.visibility="visible";
-            });
+                }
+              });
+              
             }
-            
-
-            
-          
-            
-
-        }
+          }
         else{
             document.getElementById("p1").innerHTML="";
             document.getElementById("p2").innerHTML="";
@@ -104,19 +108,21 @@ var Hin=["राम और श्याम बाजार गयें","रा
     }
     function reform()
     {
-        
-        i=0;
+      i=0;
        while(i<e_arr.length || i<h_arr.length)
         {
             if(document.getElementById(i).style.display=="none")
             {
                 document.getElementById(i).style.display="inline";
-            }
+        }
        
         document.getElementById("form").innerHTML="";
         document.getElementById("sent").innerHTML="";
-        var button=document.getElementById("reform");
-        button.style.visibility="hidden";
+        var reform=document.getElementById("reform");
+        var correctness=document.getElementById("correct");
+        reform.style.visibility="hidden";
+        correctness.style.visibility="hidden";
+
         i++;
         
         }
