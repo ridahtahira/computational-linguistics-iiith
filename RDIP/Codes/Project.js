@@ -1,5 +1,5 @@
 var English=[["John ate an apple before afternoon","before afternoon John ate an apple","John before afternoon ate an apple"],
-        ["some students like to study in the night","at night some students like to study"],
+        ["some students like to study at night","at night some students like to study"],
         ["John and Mary went to church","Mary and John went to church"],
         ["John went to church after eating","after eating John went to church","John after eating went to church"],
         ["did he go to market","he did go to market"],
@@ -96,6 +96,12 @@ var Hin=["राम और श्याम बाजार गयें","रा
                {
                  document.getElementById("reform").style.visibility="visible";
                 }
+                var b=String(document.getElementById("sent").innerHTML).replace(/\s+/, "");
+                b1=b.split(" ");
+              if(h_arr.length == b1.length)
+              {
+                 document.getElementById("correct").style.visibility="visible";
+              }
               });
               
             }
@@ -108,6 +114,7 @@ var Hin=["राम और श्याम बाजार गयें","रा
     }
     function reform()
     {
+      document.getElementById("ans").innerHTML="";
       i=0;
        while(i<e_arr.length || i<h_arr.length)
         {
@@ -127,3 +134,52 @@ var Hin=["राम और श्याम बाजार गयें","रा
         
         }
     }
+    function correctness()
+    {
+      document.getElementById("getans").style.visibility="visible";
+      var sentence=String(document.getElementById("sent").innerHTML).replace(/\s+$/,"");
+      var match=0;
+      if(document.getElementById("eng").selected)
+      {
+        for(var i=0;i<English.length;i++)
+        {
+          for(var j=0;j<English[i].length;j++)
+          {
+            if (sentence==English[i][j])
+            {
+              match=1;
+            }
+          }
+        }
+        if(match==1)
+        {
+          document.getElementById("ans").innerHTML="<span style='color:green; font-size:35px'>Right answer!!!</span>";
+        }
+        else
+         document.getElementById("ans").innerHTML="<span style='color:red; font-size:35px'>Wrong Answer!!!</span>";
+      }
+        
+      else if(document.getElementById("hin").selected)
+        {
+          for(var i=0;i<Hindi.length;i++)
+          {
+            for(var j=0;j<Hindi[i].length;j++)
+            {
+              if (sentence==Hindi[i][j])
+              {
+                match=1;
+              }
+            }
+          }
+          if(match==1)
+          {
+            document.getElementById("ans").innerHTML="<span style='color:green; font-size:35px'>Right answer!!!</span>";
+          }
+          else
+           document.getElementById("ans").innerHTML="<span style='color:red; font-size:35px'>Wrong Answer!!!</span>"
+        }
+
+        
+      }
+
+    
