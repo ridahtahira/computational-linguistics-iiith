@@ -97,7 +97,7 @@ var Hin=["राम और श्याम बाजार गयें","रा
               button.addEventListener("click",function()
               {
                var disp=0;
-               document.getElementById("form").innerHTML="Formed Sentences<span style='font-style:italic;color:#0000ff;font-size:15px;line-height: 2%;'>(after selecting words):</span>";
+               document.getElementById("form").innerHTML="Formed Sentences<span style='font-style:italic;color:#0000ff;font-size:15px;font-weight:lighter'>(after selecting words):</span>";
                document.getElementById("sent").innerHTML+=this.innerHTML+" ";
                this.style.display="none";
                disp++;
@@ -163,11 +163,11 @@ var Hin=["राम और श्याम बाजार गयें","रा
         }
         if(match==1)
         {
-          document.getElementById("ans").innerHTML="<span style='color:green; font-size:35px'>Right answer!!!</span>";
+          document.getElementById("ans").innerHTML="<span style='color:green; font-style: font-size:30px'>Right answer!!!</span>";
         }
         else
         {
-         document.getElementById("ans").innerHTML="<span style='color:red; font-size:35px'>Wrong Answer!!!</span>";
+         document.getElementById("ans").innerHTML="<span style='color:red; font-size:30px'>Wrong answer!!!</span>";
          document.getElementById("getans").style.visibility="visible";
         }
       }
